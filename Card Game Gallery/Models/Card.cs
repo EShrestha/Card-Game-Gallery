@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Card_Game_Gallery.Models
 {
+    [Serializable]
     public class Card
     {
         public enum CardSuite

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Card Game Gallery", "Card Game Gallery\Card Game Gallery.csproj", "{17C245D0-2937-41D3-92FC-964E8B22FB5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Card Game Gallery", "Card Game Gallery\Card Game Gallery.csproj", "{17C245D0-2937-41D3-92FC-964E8B22FB5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Card Game Gallery Unit Tests", "Card Game Gallery Unit Tests\Card Game Gallery Unit Tests.csproj", "{FB184BA4-F6A9-459E-A23A-EC409661E26E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{17C245D0-2937-41D3-92FC-964E8B22FB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17C245D0-2937-41D3-92FC-964E8B22FB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17C245D0-2937-41D3-92FC-964E8B22FB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB184BA4-F6A9-459E-A23A-EC409661E26E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB184BA4-F6A9-459E-A23A-EC409661E26E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB184BA4-F6A9-459E-A23A-EC409661E26E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB184BA4-F6A9-459E-A23A-EC409661E26E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
