@@ -24,23 +24,23 @@ namespace Card_Game_Gallery.Models
 
         public CardFace Face { get; set; }
 
-        public int BlackjackValue { get; private set; }
+        public int BlackjackValue { get; set; }
 
-        public bool Revealed { get; private set; }
+        public bool Revealed { get; set; }
 
         public Card(CardSuite suite, CardFace face)
         {
             Suite = suite;
             Face = face;
-            handleBlackjackValue();
+            HandleBlackjackValue();
         }
 
-        public void flip()
+        public void Flip()
         {
             Revealed = !Revealed;
         }
 
-        private void handleBlackjackValue()
+        private void HandleBlackjackValue()
         {
             switch (Face)
             {
