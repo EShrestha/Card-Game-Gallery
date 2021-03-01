@@ -94,11 +94,13 @@ namespace Card_Game_Gallery.Games.War
 
         public void HandleWar() {
             //get each players card in the list
-            List<List<Card> playersCards;
-            List<Card> p1 = 
-            while(isWar()) {
-                
+            List<List<Card> playersCards = GetPlayersCardsForWar();
+            count = 0;
+            while(isWar(playerCards[0][i], playerCards[1][i])) {
+                count++;
+                continue;
             }
+            //check which card is bigger in value and assign the winnings to the right player
         }
     }
 }
