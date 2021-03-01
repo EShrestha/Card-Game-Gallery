@@ -74,5 +74,12 @@ namespace Card_Game_Gallery.Games.War
             }
             return false;
         }
+
+        public void HandleWar() {
+            //get each players card in the list
+            while(isWar()) {
+                
+            }
+        }
     }
 }
