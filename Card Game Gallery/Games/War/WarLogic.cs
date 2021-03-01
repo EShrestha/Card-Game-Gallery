@@ -33,12 +33,12 @@ namespace Card_Game_Gallery.Games.War
         /// </summary>
         /// <param name="war"></param>
         /// <returns></returns>
-        public static List<Stack<Card>> GetPlayersCardsForWar(WarSaveGame war)
+        public static List<List<Card>> GetPlayersCardsForWar(WarSaveGame war)
         {
-            List<Stack<Card>> cfw = new List<Stack<Card>>();
+            List<List<Card>> cfw = new List<List<Card>>();
             for (int i = 0; i < war.Players.Length; i++)
             {
-                cfw.Add(new Stack<Card>());
+                cfw.Add(new List<Card>());
             }
             HandleGettingCardsForWar(war, cfw, CARDS_FOR_WAR);
             return cfw;
@@ -52,7 +52,7 @@ namespace Card_Game_Gallery.Games.War
             throw new NotImplementedException();
         }
 
-        private static void HandleGettingCardsForWar(WarSaveGame war, List<Stack<Card>> cfw, int cardsToGet)
+        private static void HandleGettingCardsForWar(WarSaveGame war, List<List<Card>> cfw, int cardsToGet)
         {
             for (int i = 0; i < cfw.Count; i++)
             {
