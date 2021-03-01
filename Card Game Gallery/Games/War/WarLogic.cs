@@ -77,6 +77,8 @@ namespace Card_Game_Gallery.Games.War
 
         public void HandleWar() {
             //get each players card in the list
+            List<List<Card> playersCards;
+            List<Card> p1 = 
             while(isWar()) {
                 
             }
