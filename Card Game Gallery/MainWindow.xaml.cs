@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Card_Game_Gallery.Games.Go_Fish;
+using Card_Game_Gallery.Games.War;
 
 namespace Card_Game_Gallery
 {
@@ -28,28 +29,30 @@ namespace Card_Game_Gallery
 
         private void btnGoFish_Click(object sender, RoutedEventArgs e)
         {
+            GoFishWindow gfw = new GoFishWindow(this);
+            gfw.Show();
             Hide();
-            new GoFishWindow().Show();
         }
 
         private void btnWar_Click(object sender, RoutedEventArgs e)
         {
-
+            WarWindow ww = new WarWindow();
+            ww.Show();
+            Hide();
         }
 
         private void btnBlackjack_Click(object sender, RoutedEventArgs e)
         {
-
+   
         }
 
         private void btnPoker_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
     }
 }

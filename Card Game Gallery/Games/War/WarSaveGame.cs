@@ -35,7 +35,7 @@ namespace Card_Game_Gallery.Games.War
                     throw new ArgumentException($"players needs to contain {MAX_PLAYERS - 1} players when playingWithComputer is {playingWithComputer}");
                 }
                 SetupPlayers(players);
-                Players[MAX_PLAYERS - 1] = new Player("Computer", new List<Card>(), 0);
+                Players[MAX_PLAYERS - 1] = new Player("Computer", true, new List<Card>(), 0);
             }
             else
             {

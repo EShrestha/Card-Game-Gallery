@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Card_Game_Gallery.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -19,16 +20,22 @@ namespace Card_Game_Gallery.Games.Go_Fish
     {
         Window callingWindow;
         bool gameFinished = false;
+        string saveGamePath = ""; // If user opens a previously saved game, saving the game agian should go to the same path
+
+        // Things for the game
+        List<Player> playersList;
+        Deck deck;
+        Player currentPlayer;
 
         // This constructor means it is a new game, maight have to add more parameters to get stuff like list of players... anything that is needed to setup a go fish game
-        public PlayGoFishWindow(Window whatWindowCalledThisWindow)
+        public PlayGoFishWindow(List<Player> playersList, Window whatWindowCalledThisWindow)
         {
             InitializeComponent();
             callingWindow = whatWindowCalledThisWindow;
         }
 
         // This constructor means a saved game is being loaded
-        public PlayGoFishWindow(Window whatWindowCalledThisWindow, GoFishSaveGame gs)
+        public PlayGoFishWindow(GoFishSaveGame save, string filePath = "", Window whatWindowCalledThisWindow = null)
         {
             InitializeComponent();
             callingWindow = whatWindowCalledThisWindow;
@@ -66,7 +73,8 @@ namespace Card_Game_Gallery.Games.Go_Fish
         // To save the current game state
         private bool SaveGame()
         {
-            if(!GoFishLogic.SaveGame(new GoFishSaveGame(/***Passe int the required parameters to create a new game save object***/)))
+            // Creating a new save game object and sending it to logic class to be searlized
+            if (!GoFishLogic.SaveGame(new GoFishSaveGame(playersList, deck, currentPlayer), saveGamePath))
             {
                 MessageBox.Show("Error", "Failed to save", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;

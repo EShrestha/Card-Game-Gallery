@@ -6,8 +6,57 @@
         xmlns:local="clr-namespace:Card_Game_Gallery.Games.Go_Fish"
         mc:Ignorable="d"
         Closing="Window_Closing"
-        Title="GoFishWindow" Height="450" Width="800">
+        Closed="Window_Closed"
+        Title="GoFishWindow" Height="205" Width="550">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Label Content="# of players?" HorizontalAlignment="Center"/>
+            <Viewbox Height="35">
+                <RadioButton x:Name="rb1" GroupName="numPlayers" Padding="5" FontSize="16" Checked="rb1_Checked">1</RadioButton>
+            </Viewbox>
+            <Viewbox Height="35">
+                <RadioButton x:Name="rb2" GroupName="numPlayers" Padding="5" FontSize="16" Checked="rb2_Checked">2</RadioButton>
+            </Viewbox>
+            <Viewbox Height="35">
+                <RadioButton x:Name="rb3" GroupName="numPlayers" Padding="5" FontSize="16" Checked="rb3_Checked">3</RadioButton>
+            </Viewbox>
+            <Viewbox Height="35">
+                <RadioButton x:Name="rb4" GroupName="numPlayers" Padding="5" FontSize="16" Checked="rb4_Checked">4</RadioButton>
+            </Viewbox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Label Content="Name of players" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtName1" FontSize="25" Width="auto" Text="Dylan"></TextBox>
+            <TextBox x:Name="txtName2" FontSize="25" Width="auto" Text="Dylan"></TextBox>
+            <TextBox x:Name="txtName3" FontSize="25" Width="auto" Text="Dylan"></TextBox>
+            <TextBox x:Name="txtName4" FontSize="25" Width="auto" Text="Dylan"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2">
+            <Label Content=" Is AI?" HorizontalAlignment="Center"/>
+            <CheckBox IsEnabled="False" Height="37" Margin="0 8 0 0" x:Name="p1" Checked="p1_Checked"  Content="Yes" HorizontalAlignment="Center"></CheckBox>
+            <CheckBox Height="37" x:Name="p2" Checked="p2_Checked"  Content="Yes" HorizontalAlignment="Center"></CheckBox>
+            <CheckBox Height="37" x:Name="p3" Checked="p3_Checked"  Content="Yes" HorizontalAlignment="Center"></CheckBox>
+            <CheckBox Height="37" x:Name="p4" Checked="p4_Checked"  Content="Yes" HorizontalAlignment="Center"></CheckBox>
+
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="3">
+            
+            <Button x:Name="btnPlay" Content="Play!" Height="55" FontWeight="Bold" FontSize="20" Click="btnPlay_Click"/>
+            <Button x:Name="btnOpenSave" Content="Open Save" Height="55" FontWeight="Bold" FontSize="20" Click="btnOpenSave_Click"/>
+            <Button x:Name="btnExit" Content="Exit" Height="55" FontWeight="Bold" FontSize="20" Click="btnExit_Click"/>
+
+        </StackPanel>
+
     </Grid>
 </Window>
