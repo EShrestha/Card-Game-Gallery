@@ -1,13 +1,17 @@
 ﻿using Card_Game_Gallery.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
 namespace Card_Game_Gallery.Games.War
 {
     public static class WarLogic
     {
-        private const int CARDS_FOR_WAR = 1;
+        private const int CARDS_FOR_WAR = 4;
+        private const int CARDS_FOR_NORMAL_PLAY = 1;
 
         public static void DealCards(WarSaveGame war)
         {
@@ -29,7 +33,7 @@ namespace Card_Game_Gallery.Games.War
         }
 
         /// <summary>
-        /// Returns a <c>List</c> of a <c>Stack</c> of cards with the first index sharing the same index as the position of the player in <c>WarSaveGame.Players</c>
+        /// Returns a <c>List</c> of a <c>List</c> of cards with the first index sharing the same index as the position of the player in <c>WarSaveGame.Players</c>
         /// </summary>
         /// <param name="war"></param>
         /// <returns></returns>
@@ -45,10 +49,21 @@ namespace Card_Game_Gallery.Games.War
             
         }
 
+        public static List<List<Card>> GetPlayersCardsForNormalPlay(WarSaveGame war)
+        {
+            List<List<Card>> cfw = new List<List<Card>>();
+            for (int i = 0; i < war.Players.Length; i++)
+            {
+                cfw.Add(new List<Card>());
+            }
+            HandleGettingCardsForWar(war, cfw, CARDS_FOR_NORMAL_PLAY);
+            return cfw;
+            
+        }
+
         // Saves teh current state of the game
         public static bool SaveGame(WarSaveGame gs)
         {
-            // Only job is to serialize the gs(game save) object to some path
             throw new NotImplementedException();
         }
 
@@ -61,8 +76,10 @@ namespace Card_Game_Gallery.Games.War
                     if (cfw[i] != null)
                     {
                         // Get top card from player's stack of cards
-                        // Remove from player's stack
                         // Add to cfw
+                        cfw[i].Add(war.Players[i].cards[0]);
+                        // Remove from player's stack
+                        war.Players[i].cards.RemoveAt(0);
                     }
                 }
             }
