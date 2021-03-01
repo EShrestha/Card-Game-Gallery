@@ -67,5 +67,12 @@ namespace Card_Game_Gallery.Games.War
                 }
             }
         }
+
+        public bool isWar(Card p1Card,Card p2Card) {
+            if(p1Card.Face == p2Card.Face) {
+                return true;
+            }
+            return false;
+        }
     }
 }
