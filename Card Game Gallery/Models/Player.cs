@@ -7,15 +7,24 @@ namespace Card_Game_Gallery.Models
     [Serializable]
     public class Player
     {
-        public string name;
+        public string name; 
         public List<Card> cards;
-        public int points;
+        public int score;
+        public bool isAi;
 
-        public Player(string name, List<Card> cards, int points = 0)
+        /// <summary>
+        /// The constructor for a player for any game
+        /// </summary>
+        /// <param name="name">The name the player chose to go by</param>
+        /// <param name="isAi">Flag for if the player is an ai or not</param>
+        /// <param name="cards">What cards the player currenty has</param>
+        /// <param name="points">How many points the player has</param>
+        public Player(string name, bool isAi=false, List<Card> cards = null, int score = 0)
         {
             this.name = name;
+            this.isAi = isAi;
             this.cards = cards;
-            this.points = points;
+            this.score = score;
         }
     }
 }

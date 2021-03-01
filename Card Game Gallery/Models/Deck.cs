@@ -19,12 +19,13 @@ namespace Card_Game_Gallery.Models
             AddAllCards();
         }
 
+        // Makes a fresh deck
         private void AddAllCards()
         {
             // Should add the cards to the deck in the same order each time Ace-King for all suits
-            for(int suit = 0; suit < 4; suit++) // There are four suits
+            for (int suit = 0; suit < 4; suit++) // There are four suits
             {
-                for(int face = 13; face > 0; face--) // Each suit has 13 cards Ace(1)-King(13)
+                for (int face = 13; face > 0; face--) // Each suit has 13 cards Ace(1)-King(13)
                 {
                     deck.Push(new Card((Card.CardSuite)suit, (Card.CardFace)face));
                 }
@@ -33,18 +34,21 @@ namespace Card_Game_Gallery.Models
             IsChanged = false;
         }
 
+        // Deck must have >=1 card to be not empty
         public bool IsDeckEmpty()
         {
             return !(deck.Count > 0); // If the deck has atleast 1 card it is not empty
         }
 
+        // Removes the top card from the deck and returns it
         public Card DrawCard()
         {
             Card temp = deck.Peek(); // Gettin the very top card of the deck
             deck.Pop(); // Removing the top card
-           return temp; // Returning what card was drawn
+            return temp; // Returning what card was drawn
         }
 
+        // Randomly shuffles the deck
         public void Shuffle()
         {
             if (!IsDeckEmpty()) return; // Can't shuffle a empty deck
@@ -52,6 +56,7 @@ namespace Card_Game_Gallery.Models
             IsChanged = true; // Shuffling the deck changes the card
         }
 
+        // Makes the current deck brand new, with all cards in order
         public void UnShuffle()
         {
             if (!IsChanged) return; // Can't unshuffle a fresh deck
