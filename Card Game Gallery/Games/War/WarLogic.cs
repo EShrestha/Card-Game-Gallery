@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Card_Game_Gallery.Games.War
 {
-    public static class WarLogic
+    public class WarLogic
     {
         private const int CARDS_FOR_WAR = 4;
         private const int CARDS_FOR_NORMAL_PLAY = 1;
