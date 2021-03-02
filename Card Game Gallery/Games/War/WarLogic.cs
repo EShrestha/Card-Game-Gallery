@@ -96,7 +96,8 @@ namespace Card_Game_Gallery.Games.War
             //get each players card in the list
             List<List<Card> playersCards = GetPlayersCardsForWar();
             count = 0;
-            while(isWar(playerCards[0][i], playerCards[1][i])) {
+            while(isWar(playerCards[0][count], playerCards[1][count])) {
+                //go to the next pair of cards until they arent equal
                 count++;
                 continue;
             }
