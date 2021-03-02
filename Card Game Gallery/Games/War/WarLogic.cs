@@ -92,16 +92,24 @@ namespace Card_Game_Gallery.Games.War
             return false;
         }
 
-        public void HandleWar() {
+        public void HandleWar(WarSaveGame war) {
             //get each players card in the list
             List<List<Card> playersCards = GetPlayersCardsForWar();
-            count = 0;
+            int count = 0;
             while(isWar(playerCards[0][count], playerCards[1][count])) {
                 //go to the next pair of cards until they arent equal
                 count++;
                 continue;
             }
+
             //check which card is bigger in value and assign the winnings to the right player
+            int winner;
+            playerCards[0][count].Face > playerCards[1][count].Face ? winner = 0 : winner = 1;
+
+            //add cfw cards to the winning players stack
+            foreach(Card c in playerCards) {
+                war.Players[winner].cards.Add(c);
+            }
         }
     }
 }
