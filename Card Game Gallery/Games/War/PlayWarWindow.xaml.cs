@@ -17,9 +17,15 @@ namespace Card_Game_Gallery.Games.War
     /// </summary>
     public partial class PlayWarWindow : Window
     {
-        public PlayWarWindow()
+        private Window calledFrom;
+
+        private WarSaveGame war;
+
+        public PlayWarWindow(WarSaveGame newWar, WarWindow calledFrom)
         {
             InitializeComponent();
+            this.calledFrom = calledFrom;
+            war = newWar;
         }
     }
 }
