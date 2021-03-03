@@ -7,7 +7,7 @@ namespace Card_Game_Gallery.Models
     [Serializable]
     public class Player
     {
-        public string name; 
+        public string name;
         public List<Card> cards;
         public int score;
         public bool isAi;
@@ -23,7 +23,7 @@ namespace Card_Game_Gallery.Models
         {
             this.name = name;
             this.isAi = isAi;
-            this.cards = cards;
+            this.cards = cards == null ? new List<Card>() : cards;
             this.score = score;
         }
     }

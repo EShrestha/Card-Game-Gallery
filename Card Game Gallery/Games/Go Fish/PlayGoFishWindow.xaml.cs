@@ -23,15 +23,19 @@ namespace Card_Game_Gallery.Games.Go_Fish
         string saveGamePath = ""; // If user opens a previously saved game, saving the game agian should go to the same path
 
         // Things for the game
-        List<Player> playersList;
+        List<GoFishPlayer> playersList;
         Deck deck;
-        Player currentPlayer;
+        GoFishPlayer currentPlayer;
 
         // This constructor means it is a new game, maight have to add more parameters to get stuff like list of players... anything that is needed to setup a go fish game
-        public PlayGoFishWindow(List<Player> playersList, Window whatWindowCalledThisWindow)
+        public PlayGoFishWindow(List<GoFishPlayer> playersList, Window whatWindowCalledThisWindow)
         {
             InitializeComponent();
             callingWindow = whatWindowCalledThisWindow;
+            this.playersList = playersList;
+            deck = new Deck();
+            Setup();
+            DisplayCurrentPlayer();
         }
 
         // This constructor means a saved game is being loaded
@@ -39,10 +43,46 @@ namespace Card_Game_Gallery.Games.Go_Fish
         {
             InitializeComponent();
             callingWindow = whatWindowCalledThisWindow;
-            // Do stuff with the gs(saved game) object to setup the game properly
+            this.playersList = save.players;
+            this.deck = save.deck;
+            this.currentPlayer = save.currentPlayer;
+            saveGamePath = filePath;
 
         }
 
+        void DisplayCurrentPlayer()
+        {
+            
+            foreach (Card c in currentPlayer.cards)
+            {
+                Button button = new Button();
+                button.Height = 190;
+                button.Width = 130;
+                button.Content = c.Face;
+                wpCardDisplay.Children.Add(button);
+            }
+        }
+
+        void Setup()
+        {
+            if(currentPlayer == null) { currentPlayer = playersList[0]; }
+            deck.Shuffle();
+            // Give everyone cards
+            foreach(GoFishPlayer player in playersList)
+            {
+                for(int count = 0; count< 7; count++)
+                {
+                    player.cards.Add(deck.DrawCard()); // Giving each player 7 cards
+                }
+            }
+        }
+
+
+
+        void GameLoop()
+        {
+
+        }
 
 
 

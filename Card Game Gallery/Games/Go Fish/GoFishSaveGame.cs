@@ -9,9 +9,9 @@ namespace Card_Game_Gallery.Games.Go_Fish
     [Serializable]
     public class GoFishSaveGame
     {
-        List<Player> players; // Holds the list of players in the game
-        Deck deck; // Holds the state of the deck
-        Player currentPlayer; // Holds the current player to make their turn
+        public List<GoFishPlayer> players; // Holds the list of players in the game
+        public Deck deck; // Holds the state of the deck
+        public GoFishPlayer currentPlayer; // Holds the current player to make their turn
 
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace Card_Game_Gallery.Games.Go_Fish
         /// <param name="players">The list of players in the game</param>
         /// <param name="deck">State of the deck in the game</param>
         /// <param name="currentPlayer">Saving the current player that is to make their turn</param>
-        public GoFishSaveGame(List<Player> players, Deck deck, Player currentPlayer)
+        public GoFishSaveGame(List<GoFishPlayer> players, Deck deck, GoFishPlayer currentPlayer)
         {
             this.players = players;
             this.deck = deck;

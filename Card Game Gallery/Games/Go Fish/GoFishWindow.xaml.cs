@@ -25,7 +25,7 @@ namespace Card_Game_Gallery.Games.Go_Fish
         Window whatWindowCalledThisWindow;
         PlayGoFishWindow playGoFishWindow;
         int numOfPlayers = 1;
-        List<Player> playersList = new List<Player>();
+        List<GoFishPlayer> playersList = new List<GoFishPlayer>();
         GoFishSaveGame save;
 
         private FileStream stream;  // Used for deserilization
@@ -156,26 +156,26 @@ namespace Card_Game_Gallery.Games.Go_Fish
             if (numOfPlayers == 1)
             {
                 // Creating a new player with witht he parameters (name, isAi, number of captures, is player AI?)
-                playersList.Add(new Player(txtName1.Text));
-                playersList.Add(new Player(txtName2.Text, true)); // If there is only one human player there must be an ai
+                playersList.Add(new GoFishPlayer(txtName1.Text));
+                playersList.Add(new GoFishPlayer(txtName2.Text, true)); // If there is only one human player there must be an ai
             }
             else if (numOfPlayers == 2)
             {
-                playersList.Add(new Player(txtName1.Text));
-                playersList.Add(new Player(txtName2.Text, (bool)p2.IsChecked));
+                playersList.Add(new GoFishPlayer(txtName1.Text));
+                playersList.Add(new GoFishPlayer(txtName2.Text, (bool)p2.IsChecked));
             }
             else if (numOfPlayers == 3)
             {
-                playersList.Add(new Player(txtName1.Text));
-                playersList.Add(new Player(txtName2.Text,(bool)p2.IsChecked));
-                playersList.Add(new Player(txtName3.Text,(bool)p2.IsChecked));
+                playersList.Add(new GoFishPlayer(txtName1.Text));
+                playersList.Add(new GoFishPlayer(txtName2.Text,(bool)p2.IsChecked));
+                playersList.Add(new GoFishPlayer(txtName3.Text,(bool)p2.IsChecked));
             }
             else if (numOfPlayers == 4)
             {
-                playersList.Add(new Player(txtName1.Text));
-                playersList.Add(new Player(txtName2.Text, (bool)p2.IsChecked));
-                playersList.Add(new Player(txtName3.Text, (bool)p2.IsChecked));
-                playersList.Add(new Player(txtName4.Text, (bool)p2.IsChecked));
+                playersList.Add(new GoFishPlayer(txtName1.Text));
+                playersList.Add(new GoFishPlayer(txtName2.Text, (bool)p2.IsChecked));
+                playersList.Add(new GoFishPlayer(txtName3.Text, (bool)p2.IsChecked));
+                playersList.Add(new GoFishPlayer(txtName4.Text, (bool)p2.IsChecked));
             }
 
 

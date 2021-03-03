@@ -9,7 +9,7 @@ namespace Card_Game_Gallery.Models
     public class Deck
     {
         // Contains the cards
-        Stack<Card> deck;
+        public Stack<Card> deck = new Stack<Card>();
 
         public bool IsChanged { get; set; } // Flag for if the deck has been touched(cards moved around) or not
 
@@ -27,7 +27,8 @@ namespace Card_Game_Gallery.Models
             {
                 for (int face = 13; face > 0; face--) // Each suit has 13 cards Ace(1)-King(13)
                 {
-                    deck.Push(new Card((Card.CardSuite)suit, (Card.CardFace)face));
+                    Card card = new Card((Card.CardSuite)suit, (Card.CardFace)face);
+                    deck.Push(card);
                 }
             }
 
@@ -35,9 +36,9 @@ namespace Card_Game_Gallery.Models
         }
 
         // Deck must have >=1 card to be not empty
-        public bool IsDeckEmpty()
+        public bool DeckNotEmpty()
         {
-            return !(deck.Count > 0); // If the deck has atleast 1 card it is not empty
+            return (deck.Count > 0); // If the deck has atleast 1 card it is not empty
         }
 
         // Removes the top card from the deck and returns it
@@ -51,9 +52,10 @@ namespace Card_Game_Gallery.Models
         // Randomly shuffles the deck
         public void Shuffle()
         {
-            if (!IsDeckEmpty()) return; // Can't shuffle a empty deck
+            if (!DeckNotEmpty()) return; // Can't shuffle a empty deck
             deck = new Stack<Card>(deck.OrderBy(card => new Random().Next())); // Shuffling the deck
             IsChanged = true; // Shuffling the deck changes the card
+
         }
 
         // Makes the current deck brand new, with all cards in order

@@ -17,7 +17,7 @@ namespace Card_Game_Gallery.Games.War
         {
             war.Deck.Shuffle();
             int pIndex = 0;
-            while (!war.Deck.IsDeckEmpty())
+            while (war.Deck.DeckNotEmpty())
             {
                 Card temp = war.Deck.DrawCard();
                 war.Players[pIndex].cards.Add(temp);
@@ -37,7 +37,7 @@ namespace Card_Game_Gallery.Games.War
         /// </summary>
         /// <param name="war"></param>
         /// <returns></returns>
-        public static List<List<Card>> GetPlayersCardsForWar(WarSaveGame war)
+        public List<List<Card>> GetPlayersCardsForWar(WarSaveGame war)
         {
             List<List<Card>> cfw = new List<List<Card>>();
             for (int i = 0; i < war.Players.Length; i++)
@@ -94,9 +94,9 @@ namespace Card_Game_Gallery.Games.War
 
         public void HandleWar(WarSaveGame war) {
             //get each players card in the list
-            List<List<Card> playersCards = GetPlayersCardsForWar();
+            List<List<Card>> playersCards = GetPlayersCardsForWar(war);
             int count = 0;
-            while(isWar(playerCards[0][count], playerCards[1][count])) {
+            while(isWar(playersCards[0][count], playersCards[1][count])) {
                 //go to the next pair of cards until they arent equal
                 count++;
                 continue;
@@ -104,11 +104,14 @@ namespace Card_Game_Gallery.Games.War
 
             //check which card is bigger in value and assign the winnings to the right player
             int winner;
-            playerCards[0][count].Face > playerCards[1][count].Face ? winner = 0 : winner = 1;
+            winner = playersCards[0][count].Face > playersCards[1][count].Face ?  0 : 1;
 
             //add cfw cards to the winning players stack
-            foreach(Card c in playerCards) {
-                war.Players[winner].cards.Add(c);
+            foreach(List<Card> cl in playersCards) {
+                foreach (Card c in cl)
+                {
+                    war.Players[winner].cards.Add(c);
+                }
             }
         }
     }

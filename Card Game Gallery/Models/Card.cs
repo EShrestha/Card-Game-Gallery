@@ -29,11 +29,14 @@ namespace Card_Game_Gallery.Models
 
         public bool Revealed { get; set; }
 
-        public Card(CardSuite suite, CardFace face)
+        public Card(CardSuite suite, CardFace face, bool isBlackjack=false)
         {
             Suite = suite;
             Face = face;
-            HandleBlackjackValue();
+            if (isBlackjack)
+            {
+                HandleBlackjackValue();
+            }
         }
 
         public void Flip()
