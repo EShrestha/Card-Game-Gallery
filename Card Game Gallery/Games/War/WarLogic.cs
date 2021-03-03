@@ -13,7 +13,7 @@ namespace Card_Game_Gallery.Games.War
         private const int CARDS_FOR_WAR = 4;
         private const int CARDS_FOR_NORMAL_PLAY = 1;
 
-        public static void DealCards(WarSaveGame war)
+        public void DealCards(WarSaveGame war)
         {
             war.Deck.Shuffle();
             int pIndex = 0;
@@ -49,7 +49,7 @@ namespace Card_Game_Gallery.Games.War
             
         }
 
-        public static List<List<Card>> GetPlayersCardsForNormalPlay(WarSaveGame war)
+        public List<List<Card>> GetPlayersCardsForNormalPlay(WarSaveGame war)
         {
             List<List<Card>> cfw = new List<List<Card>>();
             for (int i = 0; i < war.Players.Length; i++)
@@ -61,13 +61,32 @@ namespace Card_Game_Gallery.Games.War
             
         }
 
-        // Saves teh current state of the game
-        public static bool SaveGame(WarSaveGame gs)
+        // Saves teh current state of the game, returns whether the file was saved or not
+        public bool SaveGame(WarSaveGame war, string saveGamePath)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Save files name is the current time
+                string time = DateTime.Now.ToString("T");
+
+                time = time.Replace(':', '-');
+
+                IFormatter formatter = new BinaryFormatter();
+                System.IO.Directory.CreateDirectory(@"\CardGameGallery\War");
+                string path = saveGamePath.Equals("") ? @$"\CardGameGallery\War\{time}.War" : saveGamePath;
+                Stream stream = new FileStream(@$"{path}", FileMode.Create, FileAccess.Write);
+
+                formatter.Serialize(stream, war);
+                stream.Close();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        private static void HandleGettingCardsForWar(WarSaveGame war, List<List<Card>> cfw, int cardsToGet)
+        private void HandleGettingCardsForWar(WarSaveGame war, List<List<Card>> cfw, int cardsToGet)
         {
             for (int i = 0; i < cfw.Count; i++)
             {
