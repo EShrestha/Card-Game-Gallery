@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Closing="Window_Closing"
         Closed="Window_Closed"
-        Title="GoFishWindow" Height="205" Width="550">
+        Title="Configure Game" Height="205" Width="550">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -34,10 +34,10 @@
 
         <StackPanel Grid.Column="1">
             <Label Content="Name of players" HorizontalAlignment="Center"/>
-            <TextBox x:Name="txtName1" FontSize="25" Width="auto" Text="Dylan"></TextBox>
-            <TextBox x:Name="txtName2" FontSize="25" Width="auto" Text="Dylan"></TextBox>
-            <TextBox x:Name="txtName3" FontSize="25" Width="auto" Text="Dylan"></TextBox>
-            <TextBox x:Name="txtName4" FontSize="25" Width="auto" Text="Dylan"></TextBox>
+            <TextBox x:Name="txtName1" FontSize="25" Width="auto" Text="A"></TextBox>
+            <TextBox x:Name="txtName2" FontSize="25" Width="auto" Text="B"></TextBox>
+            <TextBox x:Name="txtName3" FontSize="25" Width="auto" Text="C"></TextBox>
+            <TextBox x:Name="txtName4" FontSize="25" Width="auto" Text="D"></TextBox>
         </StackPanel>
 
         <StackPanel Grid.Column="2">

@@ -6,8 +6,49 @@
         xmlns:local="clr-namespace:Card_Game_Gallery.Games.Go_Fish"
         mc:Ignorable="d"
         Closing="Window_Closing"
-        Title="PlayGoFishWindow" Height="450" Width="800">
-    <Grid>
-        
+        Background="Green"
+       
+        Title="Go Fish" Height="650" Width="1000">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0">
+            <TextBlock HorizontalAlignment="Center" FontSize="35" FontWeight="Bold" Foreground="Gold" Margin="0 10" Text="Go Fish"/>
+            <WrapPanel HorizontalAlignment="Center">
+                
+                <TextBlock x:Name="txtCurrentPlayer" Margin="10 0" FontSize="22" FontWeight="Bold" Foreground="Wheat" Text="Current Player: [Player.name]"/>
+                <TextBlock x:Name="txtNextPlayer" Margin="10 0" FontSize="22" FontWeight="Bold" Foreground="Wheat" Text="Player to ask: [PlayerList.next]"/>
+            </WrapPanel>
+            <TextBlock x:Name="txtGameMessages" Margin="0 10" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Text="Your hand is displayed below, please click a card to ask for from the next player." Foreground="GreenYellow"/>
+        </StackPanel>
+
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        </WrapPanel>
+
+        <Grid Grid.Row="2" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" HorizontalAlignment="Center" Margin="5">
+                <TextBlock Text="MATCHES" FontSize="40" FontWeight="Bold"/>
+                <TextBlock x:Name="txtMatches" HorizontalAlignment="Center" Text="0" FontSize="80" FontWeight="Bold"/>
+
+            </StackPanel>
+            <Button Grid.Column="1" Content="DECK" Margin="5 0" FontSize="70" Width="190" Height="130"/>
+            <StackPanel Grid.Column="2" HorizontalAlignment="Center" Margin="5">
+                <TextBlock Text="SCORE" FontSize="40" FontWeight="Bold"/>
+                <TextBlock x:Name="txtScore" HorizontalAlignment="Center" Text="0" FontSize="80" FontWeight="Bold"/>
+
+            </StackPanel>
+
+        </Grid>
     </Grid>
 </Window>

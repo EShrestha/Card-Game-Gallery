@@ -62,7 +62,6 @@ namespace Card_Game_Gallery.Models
             if (!IsChanged) return; // Can't unshuffle a fresh deck
             deck.Clear(); // Removing all cards form the deck
             AddAllCards(); // Reseting the deck
-
         }
     }
 }
