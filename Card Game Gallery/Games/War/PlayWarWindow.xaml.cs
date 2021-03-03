@@ -21,11 +21,20 @@ namespace Card_Game_Gallery.Games.War
 
         private WarSaveGame war;
 
+        private string savePath;
+
         public PlayWarWindow(WarSaveGame newWar, WarWindow calledFrom)
         {
             InitializeComponent();
             this.calledFrom = calledFrom;
             war = newWar;
+        }
+
+        public PlayWarWindow(WarSaveGame save, string savePath, WarWindow calledFrom)
+        {
+            this.war = save;
+            this.savePath = savePath;
+            this.calledFrom = calledFrom;
         }
     }
 }

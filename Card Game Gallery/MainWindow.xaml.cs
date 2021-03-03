@@ -36,7 +36,7 @@ namespace Card_Game_Gallery
 
         private void btnWar_Click(object sender, RoutedEventArgs e)
         {
-            WarWindow ww = new WarWindow();
+            WarWindow ww = new WarWindow(this);
             ww.Show();
             Hide();
         }
