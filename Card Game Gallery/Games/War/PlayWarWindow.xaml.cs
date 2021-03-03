@@ -36,5 +36,16 @@ namespace Card_Game_Gallery.Games.War
             this.savePath = savePath;
             this.calledFrom = calledFrom;
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // Displaying what ever window called this window after this window is closed
+            calledFrom.Show();
+        }
+
+        private void Draw_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,8 +5,105 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Card_Game_Gallery.Games.War"
         mc:Ignorable="d"
-        Title="PlayWarWindow" Height="450" Width="800">
-    <Grid>
+        Background="Green"
+        Closing="Window_Closing"
+       
+        Title="Go Fish" Height="650" Width="1000">
+    <Grid x:Name="grdMiddle" ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0">
+            <TextBlock HorizontalAlignment="Center" FontSize="35"
+                       FontWeight="Bold"
+                       Foreground="Gold"
+                       Margin="0 10"
+                       Text="War"/>
+        </StackPanel>
         
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <!-- Bind to the player.name -->
+            <TextBlock x:Name="p1NameForDrawn" Text="Placeholder" 
+                       TextAlignment="Left"    
+                       FontSize="20" 
+                       FontWeight="Bold"
+                       Margin="0 0 10 0"/>
+            <!-- For player 1's cards that are drawn for normal play and war -->
+            <WrapPanel x:Name="p1DrawnCards"
+                       Margin="20 10">
+                
+            </WrapPanel>
+
+            <!-- Bind to the player.name -->
+            <TextBlock x:Name="p2NameForDrawn" Text="Placeholder" 
+                       TextAlignment="Left"    
+                       FontSize="20" 
+                       FontWeight="Bold"
+                       Margin="0 0 10 0"/>
+            <!-- For player 2's cards that are drawn for normal play and war -->
+            <WrapPanel x:Name="p2DrawnCards"
+                       Margin="20 10">
+                
+            </WrapPanel>
+        </StackPanel>
+
+        <Grid Grid.Row="2" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Column="0"
+                        HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <!-- Bind to the player.name -->
+                    <TextBlock x:Name="p1Name" Text="Placeholder" 
+                               FontSize="30" 
+                               FontWeight="Bold"
+                               Margin="0 0 10 0"/>
+                    <TextBlock Text="Cards"
+                               FontSize="30" 
+                               FontWeight="Bold"/>
+                </StackPanel>
+                <!-- Bind to the player.cards.Count -->
+                <TextBlock x:Name="p1Cards" Text="0"
+                           FontSize="75"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <Button x:Name="Draw_Button" Content="Draw"
+                    Click="Draw_Button_Click"
+                    Grid.Column="1"
+                    Margin="5 0"
+                    FontSize="70"
+                    Width="200"
+                    Height="120"/>
+            
+            <StackPanel Grid.Column="2"
+                        HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <!-- Bind to the player.name -->
+                    <TextBlock x:Name="p2Name" Text="Placeholder" 
+                               FontSize="30" 
+                               FontWeight="Bold"
+                               Margin="0 0 10 0"/>
+                    <TextBlock Text="Cards"
+                               FontSize="30" 
+                               FontWeight="Bold"/>
+                </StackPanel>
+                <!-- Bind to the player.cards.Count -->
+                <TextBlock x:Name="p2Cards" Text="0"
+                           FontSize="75"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
