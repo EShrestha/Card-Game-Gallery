@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Card_Game_Gallery.Models
 {
     [Serializable]
-    public class Card : IComparable, IComparable<Card>
+    public class Card : IComparable, IComparable<Card>, INotifyPropertyChanged
     {
         public enum CardSuite
         {
@@ -21,15 +23,28 @@ namespace Card_Game_Gallery.Models
             ACE = 1, TWO = 2, THREE = 3, FOUR = 4, FIVE = 5, SIX = 6, SEVEN = 7, EIGHT = 8, NINE = 9, TEN = 10, JACK = 11, QUEEN = 12, KING = 13
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public CardSuite Suite { get; set; }
 
         public CardFace Face { get; set; }
 
         public int BlackjackValue { get; set; }
 
-        public bool Revealed { get; set; }
+        private bool revealed;
 
-        public Card(CardSuite suite, CardFace face, bool isBlackjack=false)
+        public bool Revealed
+        {
+            get { return revealed; }
+            set
+            {
+                revealed = value;
+                FieldChanged();
+            }
+        }
+
+
+        public Card(CardSuite suite, CardFace face, bool isBlackjack = false)
         {
             Suite = suite;
             Face = face;
@@ -130,6 +145,11 @@ namespace Card_Game_Gallery.Models
                 default:
                     throw new ArgumentException("an unexpected value was passed in for Face");
             }
+        }
+
+        protected void FieldChanged([CallerMemberName] string field = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(field));
         }
     }
 }
