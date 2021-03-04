@@ -58,10 +58,43 @@ namespace Card_Game_Gallery.Games.Go_Fish
                 Button button = new Button();
                 button.Height = 190;
                 button.Width = 130;
-                button.Content = c.Face;
+                button.Content = (int)c.Face;
+                button.FontSize = 40;
+                button.Margin = new Thickness(uniformLength: 1);
                 wpCardDisplay.Children.Add(button);
             }
+
+            txtCurrentPlayer.Text = $"Current Player: {currentPlayer.name}";
+            txtNextPlayer.Text = $"Player To Ask: {GetNextPlayer().name}";
+            txtMatches.Text = $"{currentPlayer.matchedCards.Count}";
+
+            DisplayScores();
+
         }
+
+        void DisplayScores()
+        {
+            TextBlock tb = new TextBlock();
+            tb.Text = $"{currentPlayer.name}: {currentPlayer.score}";
+            tb.FontSize = 22;
+            tb.FontWeight = FontWeights.Bold;
+            
+            spnlScorePanel.Children.Add(tb);
+
+            foreach(GoFishPlayer p in playersList)
+            {
+                if(p != currentPlayer)
+                {
+                    TextBlock t = new TextBlock();
+                    t.FontSize = 22;
+                    t.FontWeight = FontWeights.Bold;
+                    t.Text = $"{p.name}: {p.score}";
+                    spnlScorePanel.Children.Add(t);
+                }
+            }
+        }
+
+
 
         void Setup()
         {
@@ -74,6 +107,18 @@ namespace Card_Game_Gallery.Games.Go_Fish
                 {
                     player.cards.Add(deck.DrawCard()); // Giving each player 7 cards
                 }
+            }
+        }
+
+        GoFishPlayer GetNextPlayer()
+        {
+            if(playersList.IndexOf(currentPlayer) == playersList.Count - 1)
+            {
+                return playersList[0];
+            }
+            else
+            {
+                return playersList[playersList.IndexOf(currentPlayer) + 1];
             }
         }
 

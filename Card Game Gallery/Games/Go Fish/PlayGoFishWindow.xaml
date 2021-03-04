@@ -44,8 +44,11 @@
             </StackPanel>
             <Button Grid.Column="1" Content="DECK" Margin="5 0" FontSize="70" Width="190" Height="130"/>
             <StackPanel Grid.Column="2" HorizontalAlignment="Center" Margin="5">
-                <TextBlock Text="SCORE" FontSize="40" FontWeight="Bold"/>
-                <TextBlock x:Name="txtScore" HorizontalAlignment="Center" Text="0" FontSize="80" FontWeight="Bold"/>
+                <TextBlock Text="SCORES" HorizontalAlignment="Center" FontSize="40" FontWeight="Bold"/>
+                <StackPanel x:Name="spnlScorePanel" Orientation="Vertical">
+                    <!--<TextBlock x:Name="txtScore" Text="Some player: 30" HorizontalAlignment="Center" Margin="0 2" FontSize="22" FontWeight="Bold"/>-->
+                  
+                </StackPanel>
 
             </StackPanel>
 
