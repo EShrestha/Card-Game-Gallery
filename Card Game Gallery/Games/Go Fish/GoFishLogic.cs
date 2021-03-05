@@ -95,6 +95,17 @@ namespace Card_Game_Gallery.Games.Go_Fish
         }
 
 
+        public bool compareDrawnCards(GoFishPlayer player, Deck deck)
+        {
+            if (player.cards[player.cards.Count - 1] == deck.peek)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }
