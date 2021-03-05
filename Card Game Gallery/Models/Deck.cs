@@ -44,6 +44,7 @@ namespace Card_Game_Gallery.Models
         // Removes the top card from the deck and returns it
         public Card DrawCard()
         {
+            if (!DeckNotEmpty()) { AddAllCards(); Shuffle(); } // If deck runs out of cards
             Card temp = deck.Peek(); // Gettin the very top card of the deck
             deck.Pop(); // Removing the top card
             return temp; // Returning what card was drawn
