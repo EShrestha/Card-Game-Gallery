@@ -96,12 +96,13 @@ namespace Card_Game_Gallery.Games.Go_Fish
         }
 
         // Causes player if wrong to draw a card.
-        public void drawCardForWrongGuess(GoFishPlayer player, Card c)
+        /*public void drawCardForWrongGuess(GoFishPlayer player, Card c)
         {
             player.cards.Add(c.drawCard); // Adds card from top of deck to said player's hand.
         }
+        */
 
-        public bool compareDrawnCards(GoFishPlayer player, Deck deck)
+        /* public bool compareDrawnCards(GoFishPlayer player, Deck deck)
         {
             if (player.cards[player.cards.Count - 1] == deck.Peek)
             {
@@ -112,6 +113,7 @@ namespace Card_Game_Gallery.Games.Go_Fish
                 return false;
             }
         }
+        */
 
     }
 }
