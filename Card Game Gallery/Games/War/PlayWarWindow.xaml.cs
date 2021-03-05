@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Card_Game_Gallery.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,6 +21,8 @@ namespace Card_Game_Gallery.Games.War
         private Window calledFrom;
 
         private WarSaveGame war;
+
+        private WarLogic logic = new WarLogic();
 
         private string savePath;
 
@@ -45,7 +48,26 @@ namespace Card_Game_Gallery.Games.War
 
         private void Draw_Button_Click(object sender, RoutedEventArgs e)
         {
+            List<List<Card>> cards = logic.GetPlayersCardsForNormalPlay(war);
+            Button button = new Button();
+            button.Height = 190;
+            button.Width = 130;
+            button.Content = cards[0][0].Face;
+            button.FontSize = 40;
+            p1DrawnCards.Children.Add(button);
+            button.Content = cards[1][0].Face;
+            p2DrawnCards.Children.Add(button);
+        }
 
+        public void PlayGame()
+        {
+            //do turns while there is still cards remaining for both players
+            while(logic.isPlayerCardsEmpty(war) != true)
+            {
+
+            }
+            //start war if the cards are the same
+            
         }
     }
 }

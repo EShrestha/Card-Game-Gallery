@@ -133,5 +133,17 @@ namespace Card_Game_Gallery.Games.War
                 }
             }
         }
+
+        public bool isPlayerCardsEmpty(WarSaveGame game)
+        {
+            foreach(Player p in game.Players)
+            {
+                if (p.cards.Count == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
