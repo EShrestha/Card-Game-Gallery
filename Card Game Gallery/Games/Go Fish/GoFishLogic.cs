@@ -87,7 +87,6 @@ namespace Card_Game_Gallery.Games.Go_Fish
                         // Removing form players hand after moving card to seperate list
                         player.cards.RemoveAt(i);
                         player.cards.RemoveAt(j);
-                        player.score++;
                         continue;
                     }
                 }
@@ -95,23 +94,7 @@ namespace Card_Game_Gallery.Games.Go_Fish
 
         }
 
-        // Causes player if wrong to draw a card.
-        public void drawCardForWrongGuess(GoFishPlayer player, Deck deck)
-        {
-            player.cards.Add(deck.drawCard); // Adds card from top of deck to said player's hand.
-        }
 
-        public bool compareDrawnCards(GoFishPlayer player, Deck deck)
-        {
-            if (player.cards[player.cards.Count - 1] == deck.peek)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
     }
 }
