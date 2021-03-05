@@ -42,7 +42,7 @@
                 <TextBlock x:Name="txtMatches" HorizontalAlignment="Center" Text="0" FontSize="80" FontWeight="Bold"/>
 
             </StackPanel>
-            <Button Grid.Column="1" Content="DECK" Margin="5 0" FontSize="70" Width="190" Height="130"/>
+            <Button x:Name="cardDeck" IsEnabled="False" Grid.Column="1" Content="DECK" Margin="5 0" FontSize="70" Width="190" Height="130" Click="Card_Clicked"/>
             <StackPanel Grid.Column="2" HorizontalAlignment="Center" Margin="5">
                 <TextBlock Text="SCORES" HorizontalAlignment="Center" FontSize="40" FontWeight="Bold"/>
                 <StackPanel x:Name="spnlScorePanel" Orientation="Vertical">
