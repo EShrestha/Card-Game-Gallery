@@ -86,7 +86,7 @@ namespace Card_Game_Gallery.Games.War
             Player[] players = new Player[PLAYERS];
             players[0] = new Player(txtName1.Text, false, new List<Card>(), 0);
             players[1] = new Player(txtName2.Text, (bool)p2.IsChecked, new List<Card>(), 0);
-            WarSaveGame newWar = new WarSaveGame(players);
+            WarSaveGame newWar = new WarSaveGame((bool)p2.IsChecked, players);
             PlayWarWindow playWar = new PlayWarWindow(newWar, this);
             Hide();
             playWar.Show();
