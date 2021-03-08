@@ -57,20 +57,35 @@ namespace Card_Game_Gallery.Games.Go_Fish
 
         void DisplayCurrentPlayer()
         {
+            txtGameMessages.Foreground = Brushes.GreenYellow;
+            txtGameMessages.Text = "Your hand is displayed below, please click a card to ask for from the next player.";
             ClearHand(); // Clearing displays before adding new content to them
             logic.seperateMatchingCards(currentPlayer);
             // Adding a button for each card the player has
             foreach (Card c in currentPlayer.cards)
             {
+
                 Button button = new Button();
                 button.Height = 190;
                 button.Width = 130;
-                button.Content = (int)c.Face;
+                //button.Content = (int)c.Face;
                 button.FontSize = 40;
                 button.Margin = new Thickness(uniformLength: 1);
                 button.Name = $"_{currentPlayer.cards.IndexOf(c)}";
                 button.Click += Card_Clicked;
                 wpCardDisplay.Children.Add(button);
+
+                string face = (int)c.Face == 11? "jack" : (int)c.Face == 12 ? "queen" : (int)c.Face == 13 ? "king" : (int)c.Face == 1 ? "ace" : (int)c.Face+"";
+                string suit = c.Suite.ToString().ToLower();
+                button.Content = new Image
+                {
+                    Source = new BitmapImage(new Uri($"/Resources/{face}_of_{suit}.png", UriKind.RelativeOrAbsolute)),
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    Stretch = Stretch.Fill,
+                };
+
+
             }
 
             txtCurrentPlayer.Text = $"Current Player: {currentPlayer.name}";
@@ -154,13 +169,16 @@ namespace Card_Game_Gallery.Games.Go_Fish
                     logic.getCardFromPlayer(currentPlayer, GetNextPlayer(), c); // Adding matched cards
                     WinCheck();
                     currentPlayer = GetNextPlayer();
+                    DisplayCurrentPlayer();
 
                 }
                 else // Means the asked player didn't have the card that was requested, so current player fishes
                 {
                     EnableOrDisableHand(false);
                     // User now draws a card 
+                    txtGameMessages.Foreground = Brushes.OrangeRed;
                     txtGameMessages.Text = $"{GetNextPlayer().name} did not have the card you requested, 'Go fish!' they said.";
+
                 }
             }
             else
@@ -168,6 +186,7 @@ namespace Card_Game_Gallery.Games.Go_Fish
                 Card newCard = deck.DrawCard();
                 if(currentPlayer ==  lastCardRequest.player && newCard == lastCardRequest.card)
                 {
+                    txtGameMessages.Foreground = Brushes.OrangeRed;
                     txtGameMessages.Text = "Looks like you drew the card you just requested, you must fish once again!";
                     WinCheck();
                     currentPlayer.cards.Add(newCard);
@@ -178,13 +197,14 @@ namespace Card_Game_Gallery.Games.Go_Fish
                     EnableOrDisableHand(true);
                     WinCheck();
                     currentPlayer = GetNextPlayer();
+                    DisplayCurrentPlayer();
+
                 }
 
 
             }
 
 
-            DisplayCurrentPlayer();
         }
 
         void WinCheck()
