@@ -55,7 +55,6 @@ namespace Card_Game_Gallery.Games.War
             button.Content = cards[0][0].Face;
             button.FontSize = 40;
             p1DrawnCards.Children.Add(button);
-            button.Content = cards[1][0].Face;
             p2DrawnCards.Children.Add(button);
         }
 
