@@ -22,12 +22,14 @@ namespace Card_Game_Gallery.Games.War
         /// <param name="players">Expects an array containing 2 players unless <c>playingwithComputer</c> is true in which case 1 player is expected</param>
         public WarSaveGame(Player[] players)
         {
+            WarLogic logic = new WarLogic();
             Deck = new Deck();
             if (players.Length > MAX_PLAYERS || players.Length == 0)
             {
                 throw new ArgumentException($"players needs to contain at most {MAX_PLAYERS} players");
             }
             Players = players;
+            logic.DealCards(this);
         }
 
         private void SetupPlayers(Player[] players)
