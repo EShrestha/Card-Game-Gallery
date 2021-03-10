@@ -49,14 +49,35 @@ namespace Card_Game_Gallery.Games.War
         private void Draw_Button_Click(object sender, RoutedEventArgs e)
         {
             List<List<Card>> cards = logic.GetPlayersCardsForNormalPlay(war);
-            Button button = new Button();
-            button.Height = 190;
-            button.Width = 130;
-            button.Content = cards[0][0].Face;
-            button.FontSize = 40;
-            p1DrawnCards.Children.Add(button);
-            p2DrawnCards.Children.Add(button);
+            for(int i = 0; i < cards.Count; i++)
+            {
+                foreach(Card c in cards[i])
+                {
+                    string face = (int)c.Face == 11 ? "jack" : (int)c.Face == 12 ? "queen" : (int)c.Face == 13 ? "king" : (int)c.Face == 1 ? "ace" : (int)c.Face + "";
+                    string suit = c.Suite.ToString().ToLower();
+
+                    Button button = new Button();
+                    button.Height = 190;
+                    button.Width = 130;
+                    button.Content = new Image
+                    {
+                        Source = new BitmapImage(new Uri($"/Resources/{face}_of_{suit}.png", UriKind.RelativeOrAbsolute)),
+                        VerticalAlignment = VerticalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        Stretch = Stretch.Fill,
+                    };
+                    if(i == 0)
+                    {
+                        p1DrawnCards.Children.Add(button);
+                    } else
+                    {
+                        p2DrawnCards.Children.Add(button);
+                    }
+                }
+                
+            }
         }
+            
 
         public void PlayGame()
         {
