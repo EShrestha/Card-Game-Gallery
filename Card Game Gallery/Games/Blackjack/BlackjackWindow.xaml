@@ -5,8 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Card_Game_Gallery.Games.Blackjack"
         mc:Ignorable="d"
-        Title="BlackjackWindow" Height="450" Width="800">
+        Closing="Window_Closing"
+        Closed="Window_Closed"
+        Title="Configure Game" Height="205" Width="550">
     <Grid>
-        
+        <!--
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Label Content="# of players?" HorizontalAlignment="Center"/>
+            <Viewbox Height="32">
+                <RadioButton x:Name="rb1" GroupName="numPlayers" Padding="5" FontSize="16" Checked="rb1_Checked">1</RadioButton>
+            </Viewbox>
+            <Viewbox Height="32">
+                <RadioButton x:Name="rb2" GroupName="numPlayers" Padding="5" FontSize="16" Checked="rb2_Checked">2</RadioButton>
+            </Viewbox>
+            <Viewbox Height="32">
+                <RadioButton x:Name="rb3" GroupName="numPlayers" Padding="5" FontSize="16" Checked="rb3_Checked">3</RadioButton>
+            </Viewbox>
+            <Viewbox Height="32">
+                <RadioButton x:Name="rb4" GroupName="numPlayers" Padding="5" FontSize="16" Checked="rb4_Checked">4</RadioButton>
+            </Viewbox>
+            <Viewbox Height="32">
+                <RadioButton x:Name="rb5" GroupName="numPlayers" Padding="5" FontSize="16" Checked="rb5_Checked">5</RadioButton>
+            </Viewbox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Label Content="Name of players" HorizontalAlignment="Center"/>
+            <TextBox x:Name="txtName1" FontSize="21" Width="auto" Text="A"></TextBox>
+            <TextBox x:Name="txtName2" FontSize="21" Width="auto" Text="B"></TextBox>
+            <TextBox x:Name="txtName3" FontSize="21" Width="auto" Text="C"></TextBox>
+            <TextBox x:Name="txtName4" FontSize="21" Width="auto" Text="D"></TextBox>
+            <TextBox x:Name="txtName5" FontSize="21" Width="auto" Text="E"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="3">
+
+            <Button x:Name="btnPlay" Content="Play!" Height="55" FontWeight="Bold" FontSize="20" Click="btnPlay_Click"/>
+            <Button x:Name="btnOpenSave" Content="Open Save" Height="55" FontWeight="Bold" FontSize="20" Click="btnOpenSave_Click"/>
+            <Button x:Name="btnExit" Content="Exit" Height="55" FontWeight="Bold" FontSize="20" Click="btnExit_Click"/>
+
+        </StackPanel>
+
+        -->
     </Grid>
 </Window>

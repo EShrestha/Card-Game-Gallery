@@ -17,9 +17,22 @@ namespace Card_Game_Gallery.Games.Blackjack
     /// </summary>
     public partial class BlackjackWindow : Window
     {
-        public BlackjackWindow()
+        private Window calledFrom;
+
+        public BlackjackWindow(Window calledFrom)
         {
             InitializeComponent();
+            this.calledFrom = calledFrom;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // Displaying what ever window called this window after this window is closed
+            calledFrom.Show();
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+
         }
     }
 }
