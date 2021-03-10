@@ -22,7 +22,7 @@ namespace Card_Game_Gallery_Unit_Tests
             {
                 for (int j = 0; j < faces.Length; j++)
                 {
-                    card = new Card(suites[i], faces[j]);
+                    card = new Card(suites[i], faces[j], true);
                     Assert.AreEqual(card.Suite, suites[i], $"test failed for suit:{suites[i]}, face:{faces[i]}");
                     Assert.AreEqual(card.Face, faces[j], $"test failed for suit:{suites[i]}, face:{faces[i]}");
                     if (card.Face == Card.CardFace.ACE)
