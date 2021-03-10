@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 
 namespace Card_Game_Gallery.Games.Go_Fish
 {
+    // Push test
     /// <summary>
     /// Interaction logic for PlayGoFishWindow.xaml
     /// </summary>
@@ -64,8 +65,6 @@ namespace Card_Game_Gallery.Games.Go_Fish
             // Adding a button for each card the player has
             foreach (Card c in currentPlayer.cards)
             {
-                string face = (int)c.Face == 11? "jack" : (int)c.Face == 12 ? "queen" : (int)c.Face == 13 ? "king" : (int)c.Face == 1 ? "ace" : (int)c.Face+"";
-                string suit = c.Suite.ToString().ToLower();
 
                 Button button = new Button();
                 button.Height = 190;
@@ -77,6 +76,8 @@ namespace Card_Game_Gallery.Games.Go_Fish
                 button.Click += Card_Clicked;
                 wpCardDisplay.Children.Add(button);
 
+                string face = (int)c.Face == 11? "jack" : (int)c.Face == 12 ? "queen" : (int)c.Face == 13 ? "king" : (int)c.Face == 1 ? "ace" : (int)c.Face+"";
+                string suit = c.Suite.ToString().ToLower();
                 button.Content = new Image
                 {
                     Source = new BitmapImage(new Uri($"/Resources/{face}_of_{suit}.png", UriKind.RelativeOrAbsolute)),
