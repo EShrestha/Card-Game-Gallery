@@ -27,8 +27,7 @@
         <StackPanel Grid.Row="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <!-- Bind to the player.name -->
-            <TextBlock x:Name="p1NameForDrawn" Text="Placeholder" 
+            <TextBlock x:Name="p1NameForDrawn" 
                        TextAlignment="Left"    
                        FontSize="20" 
                        FontWeight="Bold"
@@ -39,8 +38,7 @@
                 
             </WrapPanel>
 
-            <!-- Bind to the player.name -->
-            <TextBlock x:Name="p2NameForDrawn" Text="Placeholder" 
+            <TextBlock x:Name="p2NameForDrawn"
                        TextAlignment="Left"    
                        FontSize="20" 
                        FontWeight="Bold"
@@ -62,8 +60,7 @@
             <StackPanel Grid.Column="0"
                         HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
-                    <!-- Bind to the player.name -->
-                    <TextBlock x:Name="p1Name" Text="Placeholder" 
+                    <TextBlock x:Name="p1Name" 
                                FontSize="30" 
                                FontWeight="Bold"
                                Margin="0 0 10 0"/>
@@ -71,8 +68,7 @@
                                FontSize="30" 
                                FontWeight="Bold"/>
                 </StackPanel>
-                <!-- Bind to the player.cards.Count -->
-                <TextBlock x:Name="p1Cards" Text="0"
+                <TextBlock x:Name="p1Cards"
                            FontSize="75"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"/>
@@ -89,8 +85,7 @@
             <StackPanel Grid.Column="2"
                         HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
-                    <!-- Bind to the player.name -->
-                    <TextBlock x:Name="p2Name" Text="Placeholder" 
+                    <TextBlock x:Name="p2Name" 
                                FontSize="30" 
                                FontWeight="Bold"
                                Margin="0 0 10 0"/>
@@ -98,8 +93,7 @@
                                FontSize="30" 
                                FontWeight="Bold"/>
                 </StackPanel>
-                <!-- Bind to the player.cards.Count -->
-                <TextBlock x:Name="p2Cards" Text="0"
+                <TextBlock x:Name="p2Cards"
                            FontSize="75"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"/>

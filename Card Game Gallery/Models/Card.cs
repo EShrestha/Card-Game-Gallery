@@ -39,6 +39,19 @@ namespace Card_Game_Gallery.Models
             set
             {
                 revealed = value;
+                ImageName = revealed ? $"{(Face > CardFace.TEN || Face < CardFace.TWO ? Face.ToString().ToLower() : ((int)Face).ToString())}_of_{Suite.ToString().ToLower()}" : "card_back";
+                FieldChanged();
+            }
+        }
+
+        private string imageName;
+
+        public string ImageName
+        {
+            get { return imageName; }
+            set
+            {
+                imageName = value;
                 FieldChanged();
             }
         }

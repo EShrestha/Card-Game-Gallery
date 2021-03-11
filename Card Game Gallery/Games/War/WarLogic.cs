@@ -10,7 +10,7 @@ namespace Card_Game_Gallery.Games.War
 {
     public class WarLogic
     {
-        private const int CARDS_FOR_WAR = 4;
+        public const int CARDS_FOR_WAR = 4;
         private const int CARDS_FOR_NORMAL_PLAY = 1;
 
         public void DealCards(WarSaveGame war)
@@ -94,11 +94,15 @@ namespace Card_Game_Gallery.Games.War
                 {
                     if (cfw[i] != null)
                     {
-                        // Get top card from player's stack of cards
-                        // Add to cfw
-                        cfw[i].Add(war.Players[i].cards[0]);
-                        // Remove from player's stack
-                        war.Players[i].cards.RemoveAt(0);
+                        try
+                        {
+                            // Get top card from player's stack of cards
+                            // Add to cfw
+                            cfw[i].Add(war.Players[i].cards[0]);
+                            // Remove from player's stack
+                            war.Players[i].cards.RemoveAt(0);
+                        }
+                        catch (Exception) { }
                     }
                 }
             }
