@@ -17,6 +17,7 @@ using Card_Game_Gallery.Games.War;
 
 namespace Card_Game_Gallery
 {
+    // Noice
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
